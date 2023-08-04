@@ -1,11 +1,16 @@
 import "./App.css";
-import Signup from "./pages/Signup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./pages/Register";
+import SelectCategory from "./pages/SelectCategory";
 
 function App() {
   return (
-    <>
-      <Signup />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/select-category" element={<SelectCategory />} />
+      </Routes>
+    </Router>
   );
 }
 
