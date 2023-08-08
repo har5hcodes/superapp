@@ -1,0 +1,124 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.leftGrid {
+  background-image: url("../assets/signupImg.png");
+  padding: 0 100px;
+}
+
+.leftGrid div {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  font-size: 56px;
+  height: 85%;
+}
+
+.rightGrid {
+  background-color: #000000;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  font-family: "Inter", sans-serif;
+  font-family: "Single Day", cursive;
+  font-size: 2.5em;
+  color: #72db73;
+  margin-bottom: 3rem;
+}
+
+.subHeader {
+  margin-top: -30px;
+  font-family: "DM Sans", sans-serif;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.inputField {
+  width: 40%;
+  height: 3.5em;
+  border-radius: 4px;
+  background-color: #292929;
+  color: #7c7c7c;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 1rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  gap: 0.25rem;
+  width: 40%;
+  margin-bottom: 0.8rem;
+}
+
+.signupBtn {
+  width: 40%;
+  height: 3em;
+  border-radius: 28px;
+  background-color: #72db73;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.paragraphStyles1 {
+  color: #7c7c7c;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+
+.paragraphStyles2 {
+  color: #7c7c7c;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  width: 40%;
+  font-size: 14px;
+  margin-bottom: 0.7rem;
+}
+
+.paragraphStyles2 a {
+  color: #72db73;
+  text-decoration: none;
+}
+
+.paragraphStyles3 {
+  color: red;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  width: 40%;
+}

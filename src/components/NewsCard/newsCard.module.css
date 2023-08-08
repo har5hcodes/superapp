@@ -1,0 +1,43 @@
+.newsContainer {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-rows: 5fr 3fr;
+  color: #000000;
+  border-radius: 0.7rem;
+}
+
+.box1 {
+  border-radius: 0.7rem 0.7rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.titleContainer {
+  padding: 2rem;
+  background-color: rgb(0, 0, 0, 0.75);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleContainer h1 {
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+.titleContainer p {
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+.box2 {
+  padding: 1rem 2rem;
+  color: #000000;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5rem;
+}
