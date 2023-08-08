@@ -70,7 +70,7 @@ const SelectCategory = () => {
       const storedUserDetails =
         JSON.parse(localStorage.getItem("userDetails")) || {};
 
-      if (!storedUserDetails.selectedCategories) {
+      if (storedUserDetails.selectedCategories) {
         storedUserDetails.selectedCategories = [];
       }
 

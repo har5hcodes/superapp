@@ -7,6 +7,8 @@ import ProfileCard from "../components/ProfileCard";
 import WeatherCard from "../components/WeatherCard";
 
 const Home = () => {
+  const storedUserDetails =
+    JSON.parse(localStorage.getItem("userDetails")) || {};
   return (
     <>
       <div className={styles.container}>
