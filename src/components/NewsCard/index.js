@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "./newsCard.module.css";
 
 const NewsCard = () => {
   const [news, setNews] = useState([]);
   const [date, setDate] = useState("");
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      await fetch(process.env.REACT_APP_NEWS_API_URL)
+        .then(async (data) => await data.json())
+        .then((res) => setNews(res.articles[0]));
+    };
+    fetchNews();
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -18,19 +26,6 @@ const NewsCard = () => {
 
     const currentDate = new Date().toLocaleString("en-US", options);
     setDate(currentDate);
-
-    const getNews = () => {
-      axios
-        .get(
-          `${process.env.REACT_APP_NEWS_API_URL}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-        )
-        .then((response) => {
-          const articles = response.data.articles;
-          setNews(articles[0]);
-        })
-        .catch((error) => console.log(error));
-    };
-    getNews();
   }, []);
   return (
     <div className={styles.newsContainer}>

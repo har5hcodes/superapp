@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./weatherCard.module.css";
 import weatherIcon from "../../assets/weatherIcon.png";
 import pressure from "../../assets/pressure.png";
@@ -12,16 +11,14 @@ const WeatherCard = () => {
     condition: { text: "" },
   });
 
-  const getWeather = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_WEATHER_API_URL}?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=India`
-      )
-      .then((response) => {
-        setWeather(response.data.current);
-      })
-      .catch((error) => console.log(error));
-  };
+  useEffect(() => {
+    const fetchWeather = async () => {
+      await fetch(process.env.REACT_APP_WEATHER_API_URL)
+        .then(async (data) => await data.json())
+        .then((data) => setWeather(data.current));
+    };
+    fetchWeather();
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -35,7 +32,6 @@ const WeatherCard = () => {
 
     const currentDate = new Date().toLocaleString("en-US", options);
     setDate(currentDate);
-    getWeather();
   }, []);
   return (
     <div className={styles.weatherContainer}>

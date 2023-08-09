@@ -116,9 +116,10 @@ const SelectCategory = () => {
       </div>
       <div className={styles.rightGrid}>
         <div className={styles.categoryContainer}>
-          {categoriesData.map((category) => {
+          {categoriesData.map((category, index) => {
             return (
               <div
+                key={index}
                 className={styles.categoryCard}
                 style={{
                   backgroundColor: category.bgColor,
