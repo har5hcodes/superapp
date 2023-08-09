@@ -1,4 +1,5 @@
 .notes {
+  position: relative;
   background-color: #f1c75b;
   padding: 2rem;
   border-radius: 0.7rem;
@@ -16,8 +17,25 @@
 
 .notes textarea {
   border: none;
-  outline: none;
-  background-color: #f1c7ff;
   width: 100%;
   height: 100%;
+  padding: 1rem;
+}
+
+.notes button {
+  position: absolute;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
 }
