@@ -22,11 +22,10 @@ const NewsCard = () => {
     const getNews = () => {
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=tesla&apiKey=72f03d361328475b93cc8e5d13606515`
+          `${process.env.REACT_APP_NEWS_API_URL}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
         )
         .then((response) => {
           const articles = response.data.articles;
-          console.log(articles[0].description);
           setNews(articles[0]);
         })
         .catch((error) => console.log(error));

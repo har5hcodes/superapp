@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Entertainment from "./pages/Entertainment";
 
 function App() {
+  console.log(process.env);
   return (
     <Router>
       <Routes>

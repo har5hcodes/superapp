@@ -7,13 +7,13 @@ const MovieRow = (props) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "84d716def9mshfda12e4c205103ep172fcejsncd20c7a2ef26",
-        "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.REACT_APP_MOVIE_API_KEY,
+        "X-RapidAPI-Host": process.env.REACT_APP_MOVIE_API_HOST,
       },
     };
     const fetchMovies = async () => {
       await fetch(
-        `https://moviesdatabase.p.rapidapi.com/titles?genre=${props.category}&year=2020`,
+        `${process.env.REACT_APP_MOVIE_API_URL}?genre=${props.category}&year=2020`,
         options
       )
         .then((response) => response.json())

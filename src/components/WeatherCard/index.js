@@ -15,10 +15,9 @@ const WeatherCard = () => {
   const getWeather = () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=2c477d7504104999ae825402232104&q=India`
+        `${process.env.REACT_APP_WEATHER_API_URL}?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=India`
       )
       .then((response) => {
-        console.log(response.data.current);
         setWeather(response.data.current);
       })
       .catch((error) => console.log(error));
