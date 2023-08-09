@@ -1,0 +1,27 @@
+.movieRow {
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.genre {
+  font-size: 1.4rem;
+  color: #878787;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.movieCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.movieCards img {
+  width: 25rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
