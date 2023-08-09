@@ -70,18 +70,14 @@ const SelectCategory = () => {
       const storedUserDetails =
         JSON.parse(localStorage.getItem("userDetails")) || {};
 
-      if (storedUserDetails.selectedCategories) {
-        storedUserDetails.selectedCategories = [];
-      }
+      storedUserDetails.selectedCategories = [];
 
       selectedCategories.forEach((category) => {
-        if (!storedUserDetails.selectedCategories.includes(category)) {
-          storedUserDetails.selectedCategories.push(category);
-        }
+        storedUserDetails.selectedCategories.push(category);
       });
 
       localStorage.setItem("userDetails", JSON.stringify(storedUserDetails));
-      navigate("/");
+      navigate("/dashboard");
     }
   };
   return (
@@ -94,9 +90,9 @@ const SelectCategory = () => {
           <p className={styles.header}>Super App</p>
           <p className={styles.subHeader}>Choose your entertainment category</p>
           <div className={styles.selectedCategoryContainer}>
-            {selectedCategories.map((category) => {
+            {selectedCategories.map((category, index) => {
               return (
-                <div className={styles.closeBtn}>
+                <div className={styles.closeBtn} key={index}>
                   <span className={styles.closeText}>{category}</span>
                   <span
                     onClick={() => handleSelectCategory(category)}
@@ -110,7 +106,7 @@ const SelectCategory = () => {
           </div>
           {selectedCategories.length < 3 ? (
             <div className={styles.errorContainer}>
-              <img src={errorTriangle} />
+              <img alt="icon" src={errorTriangle} />
               <p className={styles.paragraphStyles1}>
                 Minimum 3 category required
               </p>
@@ -134,7 +130,11 @@ const SelectCategory = () => {
                 onClick={() => handleSelectCategory(category.category)}
               >
                 <p className={styles.categoryCardHeader}>{category.category}</p>
-                <img className={styles.categoryImg} src={category.img} />
+                <img
+                  alt="icon"
+                  className={styles.categoryImg}
+                  src={category.img}
+                />
               </div>
             );
           })}
