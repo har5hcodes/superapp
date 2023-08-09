@@ -9,7 +9,7 @@ const Entertainment = () => {
   const userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
 
   const handleProfile = () => {
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (

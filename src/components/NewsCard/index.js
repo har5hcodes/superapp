@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./newsCard.module.css";
-const apiBaseUrl = "https://newsapi.org/v2/everything";
-const apiKey = "72f03d361328475b93cc8e5d13606515";
 
 const NewsCard = () => {
   const [news, setNews] = useState([]);
@@ -23,7 +21,9 @@ const NewsCard = () => {
 
     const getNews = () => {
       axios
-        .get(`${apiBaseUrl}?q=tesla&apiKey=${apiKey}`)
+        .get(
+          `https://newsapi.org/v2/everything?q=tesla&apiKey=72f03d361328475b93cc8e5d13606515`
+        )
         .then((response) => {
           const articles = response.data.articles;
           console.log(articles[0].description);
