@@ -144,12 +144,12 @@ const Register = () => {
 
           <p className={styles.paragraphStyles2}>
             By clicking on Sign up. you agree to Superapp{" "}
-            <a href="#">Terms and Conditions of Use</a>
+            <a href="/terms">Terms and Conditions of Use</a>
           </p>
           <p className={styles.paragraphStyles2}>
             To learn more about how Superapp collects, uses, shares and protects
             your personal data please head Superapp{" "}
-            <a href="#">Privacy Policy</a>
+            <a href="/privacy">Privacy Policy</a>
           </p>
         </div>
       </div>
