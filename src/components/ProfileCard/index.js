@@ -6,7 +6,7 @@ const ProfileCard = () => {
   const userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
   return (
     <div className={styles.profileContainer}>
-      <img src={profileImg} />
+      <img alt="icon" src={profileImg} />
       <div className={styles.detailsContainer}>
         <div className={styles.userInfo}>
           <p>{userDetails.name}</p>
@@ -16,8 +16,8 @@ const ProfileCard = () => {
           </p>
         </div>
         <div className={styles.categoryContainer}>
-          {userDetails.selectedCategories.map((category) => {
-            return <button>{category}</button>;
+          {userDetails.selectedCategories.map((category, index) => {
+            return <button key={index}>{category}</button>;
           })}
         </div>
       </div>

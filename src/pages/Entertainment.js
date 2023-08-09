@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "../styles/entertainment.module.css";
 import profileAvatar from "../assets/profileAvatar.png";
 import movie from "../assets/movie.png";
 
-const apiKey = "187b28eb274d5f03bb70643cfb770f2d";
-
 const Entertainment = () => {
+  const navigate = useNavigate();
   const userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
 
   const [movies, setMovies] = useState([]);
@@ -30,11 +30,15 @@ const Entertainment = () => {
     getMovies();
   }, []);
 
+  const handleProfile = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className={styles.navbar}>
         <p className={styles.navHeader}>Super App</p>
-        <img src={profileAvatar} />
+        <img alt="icon" src={profileAvatar} onClick={handleProfile} />
       </div>
       <p className={styles.caption}>Entertainment according to your choice</p>
 
@@ -55,10 +59,10 @@ const Entertainment = () => {
           <div className={styles.movieRow}>
             <div className={styles.genre}>{category}</div>
             <div className={styles.movieCards}>
-              <img src={movie} />
-              <img src={movie} />
-              <img src={movie} />
-              <img src={movie} />
+              <img alt="icon" src={movie} />
+              <img alt="icon" src={movie} />
+              <img alt="icon" src={movie} />
+              <img alt="icon" src={movie} />
             </div>
           </div>
         );
