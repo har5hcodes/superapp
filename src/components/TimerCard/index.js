@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import styles from "./timerCard.module.css";
 import upArrow from "../../assets/upArrow.png";
 import downArrow from "../../assets/downArrow.png";
-import { clear } from "@testing-library/user-event/dist/clear";
 
 const audio = new Audio(
   "https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
