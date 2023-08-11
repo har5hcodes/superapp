@@ -5,6 +5,16 @@ import pressure from "../../assets/pressure.png";
 import wind from "../../assets/wind.png";
 import humidity from "../../assets/humidity.png";
 
+const url =
+  "https://foreca-weather.p.rapidapi.com/current/102643743?alt=0&tempunit=C&windunit=MS&tz=Europe%2FLondon&lang=en";
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "ca43fb4f8bmsh46d9be1e04ce582p1e5058jsn29a7c32373fe",
+    "X-RapidAPI-Host": "foreca-weather.p.rapidapi.com",
+  },
+};
+
 const WeatherCard = () => {
   const [date, setDate] = useState("");
   const [weather, setWeather] = useState({
@@ -13,7 +23,7 @@ const WeatherCard = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await fetch(process.env.REACT_APP_WEATHER_API_URL)
+      await fetch(url, options)
         .then(async (data) => await data.json())
         .then((data) => setWeather(data.current));
     };
@@ -48,7 +58,7 @@ const WeatherCard = () => {
           }}
         >
           <img alt="icon" src={weatherIcon} />
-          <p> {weather.condition.text} </p>
+          <p> {weather.symbolPhrase} </p>
         </div>
         <div
           style={{
@@ -65,7 +75,7 @@ const WeatherCard = () => {
               fontWeight: "500",
             }}
           >
-            {weather.temp_c}°C
+            {weather.temperature}°C
           </p>
           <div
             style={{
@@ -76,7 +86,7 @@ const WeatherCard = () => {
             }}
           >
             <img alt="icon" src={pressure} />
-            <p>{weather.pressure_mb} mbar </p>
+            <p>{weather.pressure} mbar </p>
           </div>
         </div>
         <div
@@ -109,7 +119,7 @@ const WeatherCard = () => {
                 gap: "0.1rem",
               }}
             >
-              <p>{weather.wind_kph} km/h </p>
+              <p>{weather.windSpeed} km/h </p>
               <p>Wind</p>
             </div>
           </div>
@@ -135,7 +145,7 @@ const WeatherCard = () => {
                 gap: "0.1rem",
               }}
             >
-              <p>{weather.humidity} %</p>
+              <p>{weather.relHumidity} %</p>
               <p>Humidity</p>
             </div>
           </div>
