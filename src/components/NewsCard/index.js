@@ -7,9 +7,11 @@ const NewsCard = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      await fetch(process.env.REACT_APP_NEWS_API_URL)
+      await fetch(
+        "https://newsdata.io/api/1/news?apikey=pub_27502565b1d18ea4c80b6619dd4dd5dea8855&q=pizza"
+      )
         .then(async (data) => await data.json())
-        .then((res) => setNews(res.articles[0]));
+        .then((res) => setNews(res.results[9]));
     };
     fetchNews();
   }, []);
@@ -32,7 +34,7 @@ const NewsCard = () => {
       <div
         className={styles.box1}
         style={{
-          backgroundImage: `url(${news.urlToImage})`,
+          backgroundImage: `url(${news.image_url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -43,7 +45,7 @@ const NewsCard = () => {
           <p>{date}</p>
         </div>
       </div>
-      <div className={styles.box2}>{news.description}</div>
+      <div className={styles.box2}>{news.content.slice(0, 450)}....</div>
     </div>
   );
 };
