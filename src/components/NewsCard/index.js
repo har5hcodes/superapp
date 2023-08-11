@@ -11,7 +11,10 @@ const NewsCard = () => {
         "https://newsdata.io/api/1/news?apikey=pub_27502565b1d18ea4c80b6619dd4dd5dea8855&q=pizza"
       )
         .then(async (data) => await data.json())
-        .then((res) => setNews(res.results[9]));
+        .then((res) => {
+          console.log(res.results[0]);
+          setNews(res.results[9]);
+        });
     };
     fetchNews();
   }, []);
@@ -45,7 +48,12 @@ const NewsCard = () => {
           <p>{date}</p>
         </div>
       </div>
-      <div className={styles.box2}>{news.content.slice(0, 450)}....</div>
+      <div className={styles.box2}>
+        {news.content && news.content.length > 450
+          ? news.content.slice(0, 450)
+          : news.content}
+        ....
+      </div>
     </div>
   );
 };
